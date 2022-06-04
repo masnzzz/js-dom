@@ -21,8 +21,7 @@ const onClickAdd = () => {
         // 完了ボタンを押した時の処理
 
         // 完了ボタンのリスト要素を未完リストから削除
-        const doneTaret = deleteButton.parentNode;
-        document.getElementById("imcomplete-list").removeChild(doneTaret);
+        deleteFromIncompleteList(completeButton.parentNode);
 
         // 完了リストに追加する要素
         const addTarget = completeButton.parentNode;
@@ -54,8 +53,7 @@ const onClickAdd = () => {
     deleteButton.addEventListener("click", () => {
         // 削除ボタンを押した時の処理
         // 削除ボタンのリスト要素を未完リストから削除
-        const deleteTaret = deleteButton.parentNode;
-        document.getElementById("imcomplete-list").removeChild(deleteTaret);
+        deleteFromIncompleteList(deleteButton.parentNode);
     })
     
     // div タグの子要素に各要素を設定
@@ -65,6 +63,11 @@ const onClickAdd = () => {
 
     // 未完了リストに追加
     document.getElementById("imcomplete-list").appendChild(div);
+}
+
+// imcomplete-listの子要素を削除する関数
+const deleteFromIncompleteList = (target) => {
+    document.getElementById('imcomplete-list').removeChild(target);
 }
 
 document
